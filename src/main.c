@@ -6,13 +6,11 @@
 /* unix */
 #include <unistd.h>
 #include <fcntl.h>
-
 #include <sys/time.h>
 #include <sys/types.h>
 #include <sys/termios.h>
 #include <sys/mman.h>
 
-u_int16_t memory[UINT16_MAX];
 
 enum {
     R_R0 = 0,
@@ -27,6 +25,11 @@ enum {
     R_COND,
     R_COUNT,
 };
+
+
+u_int16_t memory[UINT16_MAX];
+uint16_t reg[R_COUNT];
+
 
 int main() {
     return EXIT_SUCCESS;
