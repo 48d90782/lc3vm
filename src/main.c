@@ -12,6 +12,19 @@
 #include <sys/mman.h>
 
 
+/*
+ * The R_COND register stores condition flags which provide information about the most recently executed calculation.
+ * This allows programs to check logical conditions such as `if (x > 0) {...}`
+ * Each CPU has a variety of cond flags to signal various situation. The LC-3 uses only 3
+ */
+
+enum {
+    FL_POS = 1u << 0u, // P - 1
+    FL_ZRO = 1u << 1u, // Z - 2
+    FL_NEG = 1u << 2u, // N - 4
+};
+
+
 enum {
     R_R0 = 0,
     R_R1,
@@ -50,6 +63,7 @@ enum {
     OP_LEA, // load effective address
     OP_TRAP // execute trap
 };
+
 
 
 u_int16_t memory[UINT16_MAX];
