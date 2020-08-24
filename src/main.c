@@ -26,9 +26,35 @@ enum {
     R_COUNT,
 };
 
+/*
+ * Instruction is a command which tells the CPU to do some fundamental task, such as add two numbers.
+ * Instruction have both an opcode which indicates the kind of task to perform and set of parameters which provide inputs to the task being performed.
+ *
+ * Each opcode represents one task that the CPU knows how to do. LC-3 has 16 opcodes.
+ */
+
+// OPCODES
+enum {
+    OP_BR = 0, // branch
+    OP_ADD, // add
+    OP_LD, // load
+    OP_JSR, // jump register
+    OP_AND, // bitwise and
+    OP_LDR, // load register
+    OP_STR, // store register
+    OP_RTI, // unused
+    OP_NOT, // bitwise not
+    OP_LDI, // load indirect
+    OP_JMP, // jump
+    OP_RES, // reserved
+    OP_LEA, // load effective address
+    OP_TRAP // execute trap
+};
+
 
 u_int16_t memory[UINT16_MAX];
 uint16_t reg[R_COUNT];
+
 
 
 int main() {
