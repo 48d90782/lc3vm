@@ -65,12 +65,18 @@ enum {
 };
 
 
-
 u_int16_t memory[UINT16_MAX];
 uint16_t reg[R_COUNT];
 
 
-
 int main() {
+    enum {
+        PC_START = 0x3000
+    };
+    reg[R_PC] = PC_START;
+    int running = 1;
+    while (running) {
+        
+    }
     return EXIT_SUCCESS;
 }
